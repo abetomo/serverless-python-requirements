@@ -43,10 +43,10 @@
     "format": "prettier --write index.js lib/*.js test.js"
   },
   "devDependencies": {
-    "eslint": "*",
-    "prettier": "*",
     "cross-spawn": "*",
     "deasync-promise": "*",
+    "eslint": "*",
+    "prettier": "*",
     "tape": "*"
   },
   "dependencies": {
