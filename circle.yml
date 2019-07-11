@@ -2,8 +2,8 @@ version: 2
 jobs:
   build:
     working_directory: ~/sls-py-req
-    machine:
-      image: circleci/classic
+    docker:
+      - image: circleci/node:latest
     steps:
       - checkout
       # Build python3.6. gross. (based on my gist here: https://git.io/vxMFG )
@@ -32,10 +32,10 @@ jobs:
           curl https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py -o get-poetry.py
           python get-poetry.py --preview --yes
           rm get-poetry.py
-      # install nodejs
-      - run: curl -sL https://deb.nodesource.com/setup_6.x | sudo bash - && sudo apt -y install nodejs
+      # nodejs version
+      - run: node -v
       # install serverless & depcheck
-      - run: npm install -g serverless depcheck
+      - run: sudo npm install -g serverless depcheck
       # install deps
       - run: npm i
       # depcheck
